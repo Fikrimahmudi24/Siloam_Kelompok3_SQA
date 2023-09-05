@@ -22,7 +22,9 @@ public enum TestCases {
     T19("Login sales with valid password"),
     T20("Login sales with invalid password"),
     T21("Login sales with valid username and password"),
-    T22("Logout sales"),;
+    T22("Logout sales"),
+    T23("Input Data with valid data");
+
 
     private String testCaseName;
     TestCases(String value){
