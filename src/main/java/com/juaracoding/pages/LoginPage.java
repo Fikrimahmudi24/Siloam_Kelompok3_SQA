@@ -82,6 +82,10 @@ public class LoginPage {
         password.sendKeys("d1k4@passw0rd");
         btnLogin.click();
     }
+    public void validLogout(){
+        profile.click();
+        btnLogout.click();
+    }
     public String getTxtHome(){
         delay(3);
         return txtDashboard.getText();
