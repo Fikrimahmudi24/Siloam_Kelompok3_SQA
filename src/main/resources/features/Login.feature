@@ -12,16 +12,17 @@ Feature: Check login functionality
     Then User should see text alert
 
   Scenario: Login admin with valid username and invalid password
+    Given User access valid url
     When User enter valid admin username
     And User enter invalid admin password
     And User click button login
-    Then User should see text home login
+    Then User should see warning text
 
   Scenario: Login admin with invalid username and valid password
     When User enter invalid admin username
     And User enter valid admin password
     And User click button login
-    Then User should see text home login
+    Then User should see warning text
 
   Scenario: Login admin with valid username
     When User enter valid admin username
@@ -70,13 +71,13 @@ Feature: Check login functionality
     When User enter valid sales username
     And User enter invalid sales password
     And User click button login
-    Then User should see text home login
+    Then User should see warning text
 
   Scenario: Login sales with invalid username and valid password
     When User enter invalid sales username
     And User enter valid sales password
     And User click button login
-    Then User should see text home login
+    Then User should see warning text
 
   Scenario: Login sales with valid username
     When User enter valid sales username

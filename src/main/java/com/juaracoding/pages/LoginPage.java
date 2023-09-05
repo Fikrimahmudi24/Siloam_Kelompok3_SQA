@@ -77,9 +77,14 @@ public class LoginPage {
     public void clickBtnLogout(){
         btnLogout.click();
     }
-    public void validLogin(){
+    public void validLoginAdmin(){
         username.sendKeys("admindika");
         password.sendKeys("d1k4@passw0rd");
+        btnLogin.click();
+    }
+    public void validLoginSales(){
+        username.sendKeys("D6200927");
+        password.sendKeys("1997-10-23");
         btnLogin.click();
     }
     public void validLogout(){

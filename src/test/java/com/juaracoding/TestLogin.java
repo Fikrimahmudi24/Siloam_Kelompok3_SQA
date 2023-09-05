@@ -40,6 +40,11 @@ public class TestLogin {
         extentTest.log(LogStatus.PASS, "User access Siloam url");
     }
 
+    @Then("User should see warning text")
+    public void User_should_see_warning_text(){
+        Assert.assertEquals("", "Username or password invalid");
+        extentTest.log(LogStatus.PASS, "User should see warning text");
+    }
     @Then("User should see text home login")
     public void User_should_see_text_home_login(){
         Assert.assertEquals(loginPage.getTxtHomeLogin(), "DIKA | SILOAM");
@@ -95,7 +100,7 @@ public class TestLogin {
     @And("User enter invalid admin password")
     public void User_enter_invalid_admin_password(){
         loginPage.enterPassword("dika@pasword");
-        extentTest.log(LogStatus.PASS, "User enter valid admin password");
+        extentTest.log(LogStatus.PASS, "User enter invalid admin password");
     }
 
     @When("User click profile")
