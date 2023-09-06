@@ -37,16 +37,6 @@ public class UploadDocumentPage {
     WebElement txtUploadDataBerhasil;
 
 
-
-//    public String getTxtNotFound(){
-//        delay(3);
-//        return txtNotFound.getText();
-//    }
-//    public String getTxtHomeLogin(){
-//        delay(3);
-//        return txtHomeLogin.getText();
-//    }
-
     public void clickFaskesAwal(){
         btnFaskesAwal.click();
     }
