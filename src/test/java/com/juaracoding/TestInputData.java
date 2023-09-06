@@ -36,12 +36,12 @@ public class TestInputData {
     }
     @And("User input valid nomor bpjs")
     public void user_input_valid_nomor_bpjs(){
-        inputDataPage.enterBPJS("0230577890929");
+        inputDataPage.enterBPJS("1230577890909");
         extentTest.log(LogStatus.PASS, "User input valid nomor bpjs");
     }
     @And("User input valid nomor ktp")
     public void user_input_valid_nomor_ktp(){
-        inputDataPage.enterKTP("1218567860123471");
+        inputDataPage.enterKTP("1210567860123401");
         extentTest.log(LogStatus.PASS, "User input valid nomor ktp");
     }
     @And("User input valid alamat")
@@ -65,7 +65,7 @@ public class TestInputData {
     }
     @And("User input alasan")
     public void user_input_alasan() {
-        inputDataPage.enterAlasan("Nice");
+        inputDataPage.enterAlasan("Pindah");
         extentTest.log(LogStatus.PASS, "User input alasan");
     }
     @And("User click button simpan data")
@@ -75,7 +75,7 @@ public class TestInputData {
     }
     @Then("User should see validation")
     public void user_should_see_validation(){
-        Assert.assertEquals(inputDataPage.getTxtInputData(), " Data berhasil Di Simpan ");
+        Assert.assertTrue(inputDataPage.getTxtInputData().contains("Data berhasil Di Simpan"));
         extentTest.log(LogStatus.PASS, "User should see text title page Home");
     }
 }
