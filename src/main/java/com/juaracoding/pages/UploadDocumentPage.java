@@ -57,22 +57,24 @@ public class UploadDocumentPage {
         btnTTD.click();
     }
     public void clickChoose(String file){
-        btnChoose.click();
         btnChoose.sendKeys(file);
     }
     public void clickSelanjutnya(){
         btnSelanjutnya.click();
     }
     public void clickSimpan(){
+
         btnSimpan.click();
     }
     public void clickCancel(){
+
         btnCancel.click();
     }
     public void clickOk(){
         btnOk.click();
     }
     public String getTxtUploadDataBerhasil(){
+
         return txtUploadDataBerhasil.getText();
     }
 
