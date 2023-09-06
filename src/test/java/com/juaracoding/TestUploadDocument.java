@@ -33,11 +33,7 @@ public class TestUploadDocument {
         uploadDocumentPage.clickChoose("C:/Users/PC LENOVO/Downloads/ttdd.jpg");
         extentTest.log(LogStatus.PASS, "User click button choose and select valid foto faskes awal");
     }
-//    @And("User select valid foto faskes awal document")
-//    public void user_select_valid_foto_faskes_awal_document(){
-//        uploadDocumentPage.("kelompoktiga");
-//        extentTest.log(LogStatus.PASS, "User select valid foto faskes awal document");
-//    }
+
     @And("User click button save")
     public void user_click_button_save(){
         uploadDocumentPage.clickSimpan();
@@ -70,9 +66,9 @@ public class TestUploadDocument {
     }
 
     @And("User click button selanjutnya")
-    public void user_input_valid_nomor_ktp(){
+    public void user_click_button_selanjutnya(){
         uploadDocumentPage.clickSelanjutnya();
-        extentTest.log(LogStatus.PASS, "User input valid nomor ktp");
+        extentTest.log(LogStatus.PASS, "User click button selanjutnya");
     }
     @And("User Click OK in alert message")
     public void User_Click_OK_in_alert_message(){
