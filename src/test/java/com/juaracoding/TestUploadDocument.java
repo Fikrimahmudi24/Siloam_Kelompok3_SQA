@@ -30,7 +30,7 @@ public class TestUploadDocument {
     }
     @And("User click button choose and select valid foto faskes awal")
     public void user_click_button_choose_select_valid_foto_faskes_awal(){
-        uploadDocumentPage.clickChoose("C:/Users/HP/Downloads/ttdd.jpg/");
+        uploadDocumentPage.clickChoose("C:/Users/PC LENOVO/Downloads/ttdd.jpg");
         extentTest.log(LogStatus.PASS, "User click button choose and select valid foto faskes awal");
     }
 //    @And("User select valid foto faskes awal document")
@@ -55,7 +55,7 @@ public class TestUploadDocument {
     }
     @And("User click button choose and select valid foto faskes tujuan")
     public void user_click_button_choose_and_select_valid_foto_faskes_tujuan(){
-        uploadDocumentPage.clickChoose("C:/Users/HP/Downloads/ttdd.jpg/");
+        uploadDocumentPage.clickChoose("C:/Users/PC LENOVO/Downloads/ttdd.jpg");
         extentTest.log(LogStatus.PASS, "User click button choose and select valid foto faskes tujuan");
     }
     @And("User click button TTD")
@@ -65,7 +65,7 @@ public class TestUploadDocument {
     }
     @And("User click button choose and select valid foto TTD")
     public void user_click_button_choose_and_select_valid_foto_TTD(){
-        uploadDocumentPage.clickChoose("C:/Users/HP/Downloads/ttdd.jpg/");
+        uploadDocumentPage.clickChoose("C:/Users/PC LENOVO/Downloads/ttdd.jpg");
         extentTest.log(LogStatus.PASS, "User click button choose and select valid foto TTD");
     }
 
