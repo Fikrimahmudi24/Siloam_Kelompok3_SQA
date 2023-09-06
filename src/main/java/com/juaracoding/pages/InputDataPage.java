@@ -58,9 +58,18 @@ public class InputDataPage {
 
     @FindBy(xpath = "//div[@role='alert']")
     WebElement txtInputData;
+    @FindBy(xpath = "//button[@id='btnEdit']")
+    WebElement btnEdit;
+    @FindBy(xpath = "//button[@id='btnUpdate']")
+    WebElement btnUpdate;
+    @FindBy(xpath = "//button[@id='btnCancelUpdate']")
+    WebElement btnCancelUpdate;
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    WebElement btnSubmit;
+    @FindBy(xpath = "//span[normalize-space()='Field Nomor BPJS Harus Diisi!']")
+    WebElement txtBpjsRequired;
 
-
-    // Custom Method
+    // Custom Method For Input Data
     public void clickInput() {
         btnInput.click();
     }
@@ -106,6 +115,47 @@ public class InputDataPage {
     public String getTxtInputData() {
         delay(3);
         return txtInputData.getText();
+    }
+
+    //Method for Edit Data
+    public void clickBtnEdit() {
+        btnEdit.click();
+    }
+    public String getTxtEdit(){
+       return btnEdit.getText();
+    }
+    public String getTxtSimpan(){
+       return btnUpdate.getText();
+    }
+    public String getDataNama(){
+       return name.getText();
+    }
+    public String getDataBPJS(){
+       return bpjs.getText();
+    }
+
+    public void clickBtnUpdate() {
+        btnUpdate.click();
+    }
+    public void clickBtnCancel() {
+        btnCancelUpdate.click();
+    }
+    public void clickBtnSubmit(){
+        btnSubmit.click();
+    }
+    public String getTxtFormatBPJS(){
+        delay(2);
+        String output = "";
+        String required = bpjs.getAttribute("pattern");
+        if (required.equals(".{13,13}")){
+            output += "Please Match the Requested Format: 13 to 13 Character";
+        }
+        System.out.println(output);
+        return output;
+    }
+
+    public String getTxtBpjsRequired(){
+        return txtBpjsRequired.getText();
     }
 
 
