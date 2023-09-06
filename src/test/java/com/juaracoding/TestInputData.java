@@ -36,12 +36,12 @@ public class TestInputData {
     }
     @And("User input valid nomor bpjs")
     public void user_input_valid_nomor_bpjs(){
-        inputDataPage.enterBPJS("1234567890129");
+        inputDataPage.enterBPJS("0230577890929");
         extentTest.log(LogStatus.PASS, "User input valid nomor bpjs");
     }
     @And("User input valid nomor ktp")
     public void user_input_valid_nomor_ktp(){
-        inputDataPage.enterKTP("1234567890123471");
+        inputDataPage.enterKTP("1218567860123471");
         extentTest.log(LogStatus.PASS, "User input valid nomor ktp");
     }
     @And("User input valid alamat")
