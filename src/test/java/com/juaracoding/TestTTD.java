@@ -1,7 +1,6 @@
 package com.juaracoding;
 
-import com.juaracoding.pages.InputDataPage;
-import com.juaracoding.pages.UploadDocumentPage;
+import com.juaracoding.pages.InputDataPageTwo;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.And;
@@ -10,8 +9,6 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import static com.juaracoding.drivers.DriverSingleton.delay;
@@ -20,8 +17,7 @@ public class TestTTD {
     static WebDriver driver;
     static ExtentTest extentTest;
 
-    static UploadDocumentPage uploadDocumentPage = new UploadDocumentPage();
-    static InputDataPage InputDataPage = new InputDataPage();
+    static InputDataPageTwo InputDataPage = new InputDataPageTwo();
 
     public TestTTD() {
         driver = Hooks.driver;
@@ -58,13 +54,6 @@ public class TestTTD {
         InputDataPage.enterName(Keys.CONTROL + "a" + Keys.DELETE);
         InputDataPage.enterName("Jessica");
         extentTest.log(LogStatus.PASS, "User change data in Nama field");
-    }
-
-    @And("User change data in Nomor BPJS field")
-    public void user_change_data_in_nomor_bpjs_field() {
-        InputDataPage.enterBPJS(Keys.CONTROL + "a" + Keys.DELETE);
-        InputDataPage.enterBPJS("8357025703808");
-        extentTest.log(LogStatus.PASS, "User change data in Nomor BPJS field");
     }
 
     @And("User change data in Nomor KTP field")
@@ -118,10 +107,24 @@ public class TestTTD {
         delay(2);
     }
 
+    //Ganti sebelum di Run
+    //dan harus sama dengan line 123
+    //BPJS aja
+    //
+    @And("User change data in Nomor BPJS field")
+    public void user_change_data_in_nomor_bpjs_field() {
+        InputDataPage.enterBPJS(Keys.CONTROL + "a" + Keys.DELETE);
+        InputDataPage.enterBPJS("2323233434458");
+        extentTest.log(LogStatus.PASS, "User change data in Nomor BPJS field");
+    }
+    //Ganti Sebelum Di Run
+    //Harus sama dengan baris 62
+    //BPJS aja
+    //
     @Then("Data in the field edited successfully")
     public void data_in_the_field_edited_successfully() {
         Assert.assertEquals(InputDataPage.getDataNama(), "Jessica");
-        Assert.assertEquals(InputDataPage.getDataBPJS(), "8357025703808");
+        Assert.assertEquals(InputDataPage.getDataBPJS(), "2323233434458");
         Assert.assertEquals(InputDataPage.getDataKTP(), "1270949876441289");
         Assert.assertEquals(InputDataPage.getDataAlamat(), "Kedoya");
         Assert.assertEquals(InputDataPage.getDataKotaKtp(), "Kota Jakarta Pusat");
@@ -364,7 +367,7 @@ public class TestTTD {
 
     @And("User click Browse button and select the appropriate image")
     public void user_click_browse_and_select_appropriate_image() {
-        InputDataPage.clickBtnBrowseFile("C:/Users/PC LENOVO/Downloads/fakses-awal-edit.jpg");
+        InputDataPage.clickBtnBrowseFile("C:/Users/HP/Downloads/fakses-awal-edit.jpg");
         extentTest.log(LogStatus.PASS, "User click Browse button and select the appropriate image");
     }
 
@@ -391,13 +394,13 @@ public class TestTTD {
 
     @And("User click Browse button and select image with size larger than 5MB")
     public void user_click_browse_button_and_select_image_with_size_larger_than_5mb() {
-        InputDataPage.clickBtnBrowseFile("C:/Users/PC LENOVO/Downloads/larger-than-5MB.jpg");
+        InputDataPage.clickBtnBrowseFile("C:/Users/HP/Downloads/larger-than-5MB.jpg");
         extentTest.log(LogStatus.PASS, "User click Browse button and select image with size larger than 5MB");
     }
 
     @Then("User get to see message Upload error: The file you are attempting to upload is larger than the permitted size")
     public void user_get_to_see_message_upload_error_the_file_you_are_attempting_to_upload_is_larger_than_the_permitted_size() {
-        delay(10);
+        delay(20);
         Assert.assertEquals(InputDataPage.getTxtErrorMessage(), "Upload error: The file you are attempting to upload is larger than the permitted size.");
         extentTest.log(LogStatus.PASS, "User get to see message Upload error: The file you are attempting to upload is larger than the permitted size");
         InputDataPage.clickBtnCancelInUploadFotoForm();
@@ -405,7 +408,7 @@ public class TestTTD {
 
     @And("User click Browse button and select image other than JPG, GIF, PNG")
     public void user_click_browse_button_and_select_image_other_than_jpg_gif_png() {
-        InputDataPage.clickBtnBrowseFile("C:/Users/PC LENOVO/Downloads/preview_300.pdf");
+        InputDataPage.clickBtnBrowseFile("C:/Users/HP/Downloads/preview_300.pdf");
         extentTest.log(LogStatus.PASS, "User click Browse button and select image other than JPG, GIF, PNG");
     }
 

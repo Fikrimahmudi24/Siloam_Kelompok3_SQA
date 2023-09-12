@@ -97,4 +97,5 @@ public class LoginPage {
         delay(3);
         return txtProfileName.getText();
     }
+
 }

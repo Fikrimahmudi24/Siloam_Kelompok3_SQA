@@ -1,13 +1,14 @@
 package com.juaracoding.pages;
 
 import com.juaracoding.drivers.DriverSingleton;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.Keys;
 
 import static com.juaracoding.drivers.DriverSingleton.delay;
+import static com.juaracoding.drivers.DriverSingleton.scrolling;
 
 public class InputDataPage {
 
@@ -55,36 +56,29 @@ public class InputDataPage {
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnSimpanData;
 
+    @FindBy(xpath = "//h1[@class='page-header']")
+    WebElement txtAccessInput;
+
     @FindBy(xpath = "//div[@role='alert']")
     WebElement txtInputData;
-    @FindBy(xpath = "//button[@id='btnEdit']")
-    WebElement btnEdit;
-    @FindBy(xpath = "//button[@id='btnUpdate']")
-    WebElement btnUpdate;
-    @FindBy(xpath = "//button[@id='btnCancelUpdate']")
-    WebElement btnCancelUpdate;
-    @FindBy(xpath = "//a[@class='btn btn-primary']")
-    WebElement btnSubmit;
-    @FindBy(xpath = "/html/body/div[5]/div[1]/div/div/div/div[1]/div[1]/div/form/div/div[3]/span")
-    WebElement txtBpjsRequired;
-    @FindBy(xpath = "//span[normalize-space()='Field Nomor KTP Harus Diisi!']")
-    WebElement txtKtpRequired;
-    @FindBy(xpath = "//span[normalize-space()='Field Alamat Harus Diisi!']")
-    WebElement txtAlamatRequired;
-    @FindBy(xpath = "//span[normalize-space()='Field Faskes Asal Harus Diisi!']")
-    WebElement txtFaskesAwalRequired;
-    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
-    WebElement txtAlasanRequired;
-    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
-    WebElement txtBeforeImageFile;
-    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
-    WebElement txtAfterImageFile;
-    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
-    WebElement txtTtdImageFile;
 
-    // Custom Method For Input Data
+    @FindBy(xpath = "//span[normalize-space()='Field Alamat Harus Diisi!']")
+    WebElement txtAlamat;
+
+    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
+    WebElement txtAlasan;
+
+    @FindBy(xpath = "/html/body/div[5]/div/div/div/div/form/div[5]/div/span/span[1]/span/span[1]")
+    WebElement txtKotaKTP;
+
+
+    // Custom Method
     public void clickInput() {
         btnInput.click();
+    }
+
+    public void scroll() {
+        scrolling();
     }
 
     public void enterName(String name) {
@@ -114,7 +108,7 @@ public class InputDataPage {
 
     public void selectDropDownFaskesTujuan(String faskesTujuan) {
         dropDownFaskesTujuan.click();
-        inputDropDownFaskesTujuan.sendKeys(faskesTujuan + Keys.ENTER);
+        inputDropDownFaskesTujuan.sendKeys(faskesTujuan+Keys.ENTER);
     }
 
     public void enterAlasan(String alasan) {
@@ -130,133 +124,112 @@ public class InputDataPage {
         return txtInputData.getText();
     }
 
-    //Method for Edit Data
-    public void clickBtnEdit() {
-        btnEdit.click();
-    }
-
-    public String getTxtEdit() {
-        return btnEdit.getText();
-    }
-
-    public String getTxtSimpan() {
-        return btnUpdate.getText();
-    }
-
-    public String getDataNama() {
-        return name.getText();
-    }
-
-    public String getDataBPJS() {
-        return bpjs.getText();
-    }
-
-    public String getDataKTP() {
-        return ktp.getText();
-    }
-    public String getDataAlamat() {
-        return alamat.getText();
-    }
-    public String getDataKotaKtp() {
-        return dropDownKotaKTP.getText();
-    }
-    public String getDataFaskesAwal() {
-        return faskesAwal.getText();
-    }
-    public String getDataFaskesTujuan() {
-        return dropDownFaskesTujuan.getText();
-    }
-    public String getDataAlasan() {
-        return alasan.getText();
-    }
-
-    public void clickBtnUpdate() {
-        btnUpdate.click();
-    }
-
-    public void clickBtnCancel() {
-        btnCancelUpdate.click();
-    }
-
-    public void clickBtnSubmit() {
-        btnSubmit.click();
-    }
-
-    public String getTxtFormatBPJS() {
+    public String getTxtFillOutName(){
         delay(2);
         String output = "";
-        String required = bpjs.getAttribute("pattern");
-        if (required.equals(".{13,13}")) {
-            output += "Please Match the Requested Format: 13 to 13 Character";
+        String required = name.getAttribute("required");
+        if (required.equals("true")){
+            output += "Please fill out this field.";
         }
         System.out.println(output);
         return output;
     }
-
-    public String getTxtFormatKTP() {
+    public String getTxtPleaseMatchBPJS(){
         delay(2);
         String output = "";
-        String required = bpjs.getAttribute("pattern");
-        if (required.equals(".{16,16}")) {
-            output += "Please Match the Requested Format: 16 to 16 Character";
+        String required = bpjs.getAttribute("required");
+        if (required.equals("true")){
+            output += "Please match the requested format.";
         }
         System.out.println(output);
         return output;
     }
-    public void inputAlamat(Integer myInt) {
-        alamat.sendKeys(String.valueOf(myInt));
-    }
-    public void inputFaskesAwal(Integer myInt) {
-        faskesAwal.sendKeys(String.valueOf(myInt));
-    }
-    public void inputAlasan(Integer myInt) {
-        alasan.sendKeys(String.valueOf(myInt));
-    }
-    public String getTxtBpjsRequired() {
-        return txtBpjsRequired.getText();
-    }
-    public String getTxtKtpRequired() {
-        return txtKtpRequired.getText();
-    }
-    public String getTxtAlamatRequired() {
-        return txtAlamatRequired.getText();
-    }
-    public String getTxtFaskesAwalRequired() {
-        return txtFaskesAwalRequired.getText();
-    }
-    public String getTxtAlasanRequired() {
-        return txtAlasanRequired.getText();
-    }
-    public String getTxtFormatAlamatIsNotNumber() {
+//    public String getTxtStartDate(){
+//        delay(2);
+//        String output = "";
+//        String placeHolder = bpjs.getAttribute("placeholder");
+//        if (placeHolder.equals("Start Date")){
+//            output += "Start date";
+//        }
+//        System.out.println(output);
+//        return output;
+//    }
+    public String getTxtFillOutBPJS(){
+        delay(2);
         String output = "";
-        String isNotNumber = alamat.getAttribute("type");
-        if (!isNotNumber.equals("Number")) {
-            output += "Please input the right address!";
+        String required = bpjs.getAttribute("required");
+        if (required.equals("true")){
+            output += "Please fill out this field.";
         }
         System.out.println(output);
         return output;
-    }
-    public String getTxtFormatFaskesAwalIsNotNumber() {
-        String output = "";
-        String isNotNumber = faskesAwal.getAttribute("type");
-        if (!isNotNumber.equals("Number")) {
-            output += "Please input the right faskes awal!";
-        }
-        System.out.println(output);
-        return output;
-    }
-    public String getTxtFormatAlasanIsNotNumber() {
-        String output = "";
-        String isNotNumber = alasan.getAttribute("type");
-        if (!isNotNumber.equals("Number")) {
-            output += "Please input the right faskes awal!";
-        }
-        System.out.println(output);
-        return output;
-    }
-    public String getBeforeImageFileName() {
-     return txtBeforeImageFile.getText();
     }
 
+    public String getTxtPleaseMatchKTP(){
+        delay(2);
+        String output = "";
+        String required = ktp.getAttribute("required");
+        if (required.equals("true")){
+            output += "Please match the requested format.";
+        }
+        System.out.println(output);
+        return output;
+    }
 
+    public String getTxtFillOutKTP(){
+        delay(2);
+        String output = "";
+        String required = ktp.getAttribute("required");
+        if (required.equals("true")){
+            output += "Please fill out this field.";
+        }
+        System.out.println(output);
+        return output;
+    }
+    public String getTxtAlamat() {
+        delay(2);
+        return txtAlamat.getText();
+    }
+    public String getTxtFillOutKotaKTP(){
+        delay(2);
+        String output = "";
+        String required = dropDownKotaKTP.getAttribute("id");
+        if (required.equals("select2-ktp_city-container")){
+            output += "Please select an item in the list.";
+        }
+        System.out.println(output);
+        return output;
+    }
+    public String getTxtFillOutFaskesAwal(){
+        delay(2);
+        String output = "";
+        String required = faskesAwal.getAttribute("required");
+        if (required.equals("true")){
+            output += "Please fill out this field.";
+        }
+        System.out.println(output);
+        return output;
+    }
+    public String getTxtFillOutFaskesTujuan(){
+        delay(2);
+        String output = "";
+        String required = dropDownFaskesTujuan.getAttribute("id");
+        if (required.equals("select2-destination_faskes-container")){
+            output += "clinic meruya";
+        }
+        System.out.println(output);
+        return output;
+    }
+    public String getTxtAlasan() {
+        delay(2);
+        return txtAlasan.getText();
+    }
+    public String getTxtKotaKTP() {
+        delay(2);
+        return txtKotaKTP.getText();
+    }
+    public String getTxtAccessInput() {
+        delay(2);
+        return txtAccessInput.getText();
+    }
 }

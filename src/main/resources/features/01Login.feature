@@ -105,7 +105,7 @@ Feature: Check login functionality
     And User click button login
     Then User should see text title page home sales
 
-  Scenario: Logout admin
+  Scenario: Logout sales
     When User click profile
     And User click button logout
     Then User should see text home login

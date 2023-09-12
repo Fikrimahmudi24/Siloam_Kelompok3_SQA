@@ -1,6 +1,5 @@
 package com.juaracoding;
 
-
 import com.juaracoding.pages.LoginPage;
 import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -114,7 +113,6 @@ public class TestLogin {
         loginPage.clickBtnLogout();
         extentTest.log(LogStatus.PASS, "User click button logout");
     }
-
     @When("User enter valid sales username")
     public void User_enter_valid_sales_username(){
         loginPage.enterUsername("D6200927");

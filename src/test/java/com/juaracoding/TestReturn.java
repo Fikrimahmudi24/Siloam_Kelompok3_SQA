@@ -25,7 +25,6 @@ public class TestReturn {
     }
     @When("User click menu return")
     public void User_click_menu_return(){
-        loginPage.validLoginSales();
         returnPage.clickMenuReturn();
         extentTest.log(LogStatus.PASS, "User click menu return");
     }

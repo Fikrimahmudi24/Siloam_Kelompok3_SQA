@@ -3,6 +3,7 @@ package com.juaracoding.drivers;
 import com.juaracoding.drivers.strategies.DriverStrategy;
 import com.juaracoding.drivers.strategies.DriverStrategyImplementer;
 import com.juaracoding.utils.Constants;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -40,5 +41,18 @@ public class DriverSingleton {
     public static void closeObjectInstance(){
         instance = null;
         driver.quit();
+    }
+
+    public static void scrolling() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
+    }
+    public static void scrollDown(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,350)", "");
+    }
+    public static void scrollUp(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-350)", "");
     }
 }

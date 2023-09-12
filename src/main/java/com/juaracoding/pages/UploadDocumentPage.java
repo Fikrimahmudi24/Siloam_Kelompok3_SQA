@@ -33,10 +33,27 @@ public class UploadDocumentPage {
     WebElement btnSelanjutnya;
     @FindBy(xpath = "//button[@class='swal-button swal-button--confirm']")
     WebElement btnOk;
+    @FindBy(xpath = "//div[@class='swal-text']")
+    WebElement txtSuccesfully;
     @FindBy(xpath = "//*[@id=\"default-tab-3\"]/div[1]/div[1]/div/div/h4")
     WebElement txtUploadDataBerhasil;
+    @FindBy(xpath = "//*[@id=\"modal_form\"]/div/div/div[1]/h4")
+    WebElement txtUploadFotoBefore;
+    @FindBy(xpath = "//h4[@class='modal-title']")
+    WebElement txtUploadFotoAfter;
+    @FindBy(xpath = "//h4[@class='modal-title']")
+    WebElement txtUploadTTD;
+    @FindBy(xpath = "//a[@class='nav-link active']//span[@class='d-sm-block d-none']")
+    WebElement txtUploadDocument;
+    @FindBy(xpath = "//div[@class='modal-header']//button[@aria-label='Close']")
+    WebElement btnClose;
+    @FindBy(xpath = "//div[@id='message']")
+    WebElement txtUploadError;
+    @FindBy(xpath = "//*[@id=\"file\"]")
+    WebElement txtUploadRequired;
 
 
+    //Method
     public void clickFaskesAwal(){
         btnFaskesAwal.click();
     }
@@ -53,19 +70,53 @@ public class UploadDocumentPage {
         btnSelanjutnya.click();
     }
     public void clickSimpan(){
-
         btnSimpan.click();
     }
     public void clickCancel(){
-
         btnCancel.click();
+    }
+    public void clickClose(){
+        btnClose.click();
     }
     public void clickOk(){
         btnOk.click();
     }
+    public String getTxtSuccesfully(){
+        return txtSuccesfully.getText();
+    }
     public String getTxtUploadDataBerhasil(){
-
         return txtUploadDataBerhasil.getText();
+    }
+    public String getTxtUploadFotoBeforeContains(){
+        return txtUploadFotoBefore.getText();
+    }
+    public String getTxtUploadFotoBefore(){
+        return txtUploadFotoBefore.getText();
+    }
+    public String getTxtUploadFotoAfter(){
+        return txtUploadFotoAfter.getText();
+    }
+    public String getTxtUploadTTD(){
+        return txtUploadTTD.getText();
+    }
+    public String getTxtUploadDocument(){
+        return txtUploadDocument.getText();
+    }
+    public String getTxtUploadError(){
+        return txtUploadError.getText();
+    }
+    public String getTxtUploadRequired(){
+        return txtUploadRequired.getText();
+    }
+    public String getTxtChooseFile() {
+        delay(2);
+        String output = "";
+        String required = txtUploadRequired.getAttribute("required");
+        if (required.equals("true")) {
+            output += "ttdd.jpg";
+        }
+        System.out.println(output);
+        return output;
     }
 
 
